@@ -1,0 +1,32 @@
+//
+// Copyright © 2025 Eus Goed.
+// All Rights Reserved
+
+import Foundation
+
+protocol Networkable {
+    func sendRequest<T: Decodable>(endpoint: EndPoint) async throws -> T
+}
+
+extension Networkable {
+    func createRequest(endPoint: EndPoint) -> URLRequest? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = endPoint.scheme
+        urlComponents.host = endPoint.host
+        urlComponents.path = endPoint.path
+        
+        if let queryParams = endPoint.queryParams {
+            urlComponents.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }
+        }
+        guard let url = urlComponents.url else {
+            return nil
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = endPoint.method.rawValue
+        request.allHTTPHeaderFields = endPoint.header
+        if let body = endPoint.body {
+            request.httpBody = try? JSONEncoder().encode(body)
+        }
+        return request
+    }
+}

@@ -6,6 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CE06A36B2DB029E9006A7164 /* SnakeCaseJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3582DB029E9006A7164 /* SnakeCaseJSONDecoder.swift */; };
+		CE06A36C2DB029E9006A7164 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A35A2DB029E9006A7164 /* Endpoint.swift */; };
+		CE06A36F2DB029E9006A7164 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A35E2DB029E9006A7164 /* HTTPClient.swift */; };
+		CE06A3702DB029E9006A7164 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A35F2DB029E9006A7164 /* HTTPMethod.swift */; };
+		CE06A3712DB029E9006A7164 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3602DB029E9006A7164 /* Networkable.swift */; };
+		CE06A3722DB029E9006A7164 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3612DB029E9006A7164 /* NetworkError.swift */; };
+		CE06A3732DB029E9006A7164 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3622DB029E9006A7164 /* URLSessionProtocol.swift */; };
+		CE06A3752DB029E9006A7164 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3662DB029E9006A7164 /* ContentView.swift */; };
+		CE06A3762DB029E9006A7164 /* GamesTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3672DB029E9006A7164 /* GamesTrackerApp.swift */; };
+		CE06A3792DB029E9006A7164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE06A3642DB029E9006A7164 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		CEF852552DAFF12500FF0028 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,17 +37,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE06A3582DB029E9006A7164 /* SnakeCaseJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeCaseJSONDecoder.swift; sourceTree = "<group>"; };
+		CE06A35A2DB029E9006A7164 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		CE06A35E2DB029E9006A7164 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		CE06A35F2DB029E9006A7164 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		CE06A3602DB029E9006A7164 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		CE06A3612DB029E9006A7164 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		CE06A3622DB029E9006A7164 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		CE06A3642DB029E9006A7164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE06A3662DB029E9006A7164 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE06A3672DB029E9006A7164 /* GamesTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTrackerApp.swift; sourceTree = "<group>"; };
+		CE06A3682DB029E9006A7164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF852452DAFF12300FF0028 /* GamesTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF852542DAFF12500FF0028 /* GamesTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GamesTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF8525E2DAFF12500FF0028 /* GamesTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GamesTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		CEF852472DAFF12300FF0028 /* GamesTracker */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GamesTracker;
-			sourceTree = "<group>";
-		};
 		CEF852572DAFF12500FF0028 /* GamesTrackerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GamesTrackerTests;
@@ -72,10 +91,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE06A3592DB029E9006A7164 /* Decoders */ = {
+			isa = PBXGroup;
+			children = (
+				CE06A3582DB029E9006A7164 /* SnakeCaseJSONDecoder.swift */,
+			);
+			path = Decoders;
+			sourceTree = "<group>";
+		};
+		CE06A35D2DB029E9006A7164 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				CE06A35A2DB029E9006A7164 /* Endpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		CE06A3632DB029E9006A7164 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CE06A3592DB029E9006A7164 /* Decoders */,
+				CE06A35D2DB029E9006A7164 /* Endpoints */,
+				CE06A35E2DB029E9006A7164 /* HTTPClient.swift */,
+				CE06A35F2DB029E9006A7164 /* HTTPMethod.swift */,
+				CE06A3602DB029E9006A7164 /* Networkable.swift */,
+				CE06A3612DB029E9006A7164 /* NetworkError.swift */,
+				CE06A3622DB029E9006A7164 /* URLSessionProtocol.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CE06A3692DB029E9006A7164 /* GamesTracker */ = {
+			isa = PBXGroup;
+			children = (
+				CE06A3632DB029E9006A7164 /* Networking */,
+				CE06A3642DB029E9006A7164 /* Assets.xcassets */,
+				CE06A3662DB029E9006A7164 /* ContentView.swift */,
+				CE06A3672DB029E9006A7164 /* GamesTrackerApp.swift */,
+				CE06A3682DB029E9006A7164 /* Info.plist */,
+			);
+			path = GamesTracker;
+			sourceTree = "<group>";
+		};
 		CEF8523C2DAFF12300FF0028 = {
 			isa = PBXGroup;
 			children = (
-				CEF852472DAFF12300FF0028 /* GamesTracker */,
+				CE06A3692DB029E9006A7164 /* GamesTracker */,
 				CEF852572DAFF12500FF0028 /* GamesTrackerTests */,
 				CEF852612DAFF12500FF0028 /* GamesTrackerUITests */,
 				CEF852462DAFF12300FF0028 /* Products */,
@@ -106,9 +167,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				CEF852472DAFF12300FF0028 /* GamesTracker */,
 			);
 			name = GamesTracker;
 			packageProductDependencies = (
@@ -212,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE06A3792DB029E9006A7164 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +295,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE06A36B2DB029E9006A7164 /* SnakeCaseJSONDecoder.swift in Sources */,
+				CE06A36C2DB029E9006A7164 /* Endpoint.swift in Sources */,
+				CE06A36F2DB029E9006A7164 /* HTTPClient.swift in Sources */,
+				CE06A3702DB029E9006A7164 /* HTTPMethod.swift in Sources */,
+				CE06A3712DB029E9006A7164 /* Networkable.swift in Sources */,
+				CE06A3722DB029E9006A7164 /* NetworkError.swift in Sources */,
+				CE06A3732DB029E9006A7164 /* URLSessionProtocol.swift in Sources */,
+				CE06A3752DB029E9006A7164 /* ContentView.swift in Sources */,
+				CE06A3762DB029E9006A7164 /* GamesTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,11 +468,14 @@
 				DEVELOPMENT_TEAM = GDG3JLHFMS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GamesTracker/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,9 +483,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eusgoed.GamesTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -428,11 +503,14 @@
 				DEVELOPMENT_TEAM = GDG3JLHFMS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GamesTracker/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -440,9 +518,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eusgoed.GamesTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
