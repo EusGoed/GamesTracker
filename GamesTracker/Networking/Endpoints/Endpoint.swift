@@ -4,18 +4,18 @@
 
 import Foundation
 
-protocol EndPoint {
+protocol Endpoint {
     var scheme: String { get }
     var host: String { get }
     var path: String { get }
     var method: HTTPMethod { get }
     var header: [String: String]? { get }
-    var body: [String: String]? { get }
+    var body: String? { get }
     var queryParams: [String: String]? { get }
     var pathParams: [String: String]? { get }
 }
 
-extension EndPoint {
+extension Endpoint {
     var scheme: String {
         "https"
     }
@@ -24,7 +24,7 @@ extension EndPoint {
         nil
     }
     
-    var body: [String: String]? {
+    var body: String? {
         nil
     }
     

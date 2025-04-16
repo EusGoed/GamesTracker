@@ -5,7 +5,7 @@
 import Foundation
 @testable import GamesTracker
 
-struct MockEndpoint: EndPoint {
+struct MockEndpoint: Endpoint {
     var host: String
     var path: String
     var method: HTTPMethod

@@ -8,7 +8,7 @@ enum TwitchEndpoint {
     case token
 }
 
-extension TwitchEndpoint: EndPoint {
+extension TwitchEndpoint: Endpoint {
     var host: String {
         "id.twitch.tv"
     }

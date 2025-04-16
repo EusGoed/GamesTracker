@@ -5,15 +5,16 @@
 import Foundation
 
 protocol Networkable {
-    func sendRequest<T: Decodable>(endpoint: any EndPoint, shouldRetryOnUnauthorized: Bool) async throws -> T
+    func sendRequest<T: Decodable>(endpoint: any Endpoint, shouldRetryOnUnauthorized: Bool) async throws -> T
 }
 
 extension Networkable {
-    func createRequest(endPoint: EndPoint, accessToken: String? = nil) -> URLRequest? {
+    func createRequest(endPoint: Endpoint, accessToken: String? = nil) -> URLRequest? {
         var urlComponents = URLComponents()
         urlComponents.scheme = endPoint.scheme
         urlComponents.host = endPoint.host
-        urlComponents.path = endPoint.path
+        urlComponents.path = endPoint.path.hasPrefix("/") ? endPoint.path : "/" + endPoint.path
+
         
         if let queryParams = endPoint.queryParams {
             urlComponents.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }
@@ -32,7 +33,7 @@ extension Networkable {
         }
         
         if let body = endPoint.body {
-            request.httpBody = try? JSONEncoder().encode(body)
+            request.httpBody = body.data(using: .utf8)
         }
         
         return request

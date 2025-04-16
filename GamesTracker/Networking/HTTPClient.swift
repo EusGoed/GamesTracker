@@ -19,7 +19,7 @@ class HTTPClient: Networkable {
         self.authenticator = authenticator
     }
     
-    func sendRequest<T: Decodable>(endpoint: any EndPoint, shouldRetryOnUnauthorized: Bool = true) async throws -> T {
+    func sendRequest<T: Decodable>(endpoint: any Endpoint, shouldRetryOnUnauthorized: Bool = true) async throws -> T {
         guard let urlRequest = createRequest(endPoint: endpoint, accessToken: await authenticator.accessToken) else {
             HTTPClient.logger.warning("Could not create request: invalid URL")
             throw NetworkError.invalidURL
@@ -29,7 +29,7 @@ class HTTPClient: Networkable {
         do {
             (data, response) = try await urlSession.data(for: urlRequest)
         } catch {
-            HTTPClient.logger.warning("Could not create request: invalid URL")
+            HTTPClient.logger.warning("Could not create request: invalid URL (\(urlRequest.url?.absoluteString ?? "-"))")
             throw NetworkError.invalidURL
         }
 
@@ -46,15 +46,15 @@ class HTTPClient: Networkable {
 
             do {
                 try await authenticator.refreshAccessToken()
-                return try await sendRequest(endpoint: endpoint, shouldRetryOnUnauthorized: false)
             } catch {
                 HTTPClient.logger.error("Token refresh failed: \(error.localizedDescription)")
                 throw NetworkError.unauthorized
             }
+            return try await sendRequest(endpoint: endpoint, shouldRetryOnUnauthorized: false)
         }
         
         guard (200...299).contains(httpResponse.statusCode) else {
-            HTTPClient.logger.warning("Got a response with an unexpected status code: \(httpResponse.statusCode)")
+            HTTPClient.logger.warning("Got a response with an unexpected status code: \(httpResponse.statusCode) - \(String(data: data, encoding: .utf8) ?? "Unknown")")
             throw NetworkError.unexpectedStatusCode
         }
 

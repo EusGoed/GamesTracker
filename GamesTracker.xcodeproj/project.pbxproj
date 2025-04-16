@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CE06A36B2DB029E9006A7164 /* SnakeCaseJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3582DB029E9006A7164 /* SnakeCaseJSONDecoder.swift */; };
-		CE06A36C2DB029E9006A7164 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A35A2DB029E9006A7164 /* Endpoint.swift */; };
 		CE06A36F2DB029E9006A7164 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A35E2DB029E9006A7164 /* HTTPClient.swift */; };
 		CE06A3702DB029E9006A7164 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A35F2DB029E9006A7164 /* HTTPMethod.swift */; };
 		CE06A3712DB029E9006A7164 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3602DB029E9006A7164 /* Networkable.swift */; };
@@ -23,6 +22,8 @@
 		CE06A3982DB02B5D006A7164 /* Config.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = CE06A37B2DB02B5D006A7164 /* Config.xcconfig.example */; };
 		CE06A3992DB02B5D006A7164 /* Development.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CE06A37C2DB02B5D006A7164 /* Development.xcconfig */; };
 		CE06A39B2DB02FA1006A7164 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A39A2DB02FA1006A7164 /* Authenticator.swift */; };
+		CE06A3A12DB056F1006A7164 /* IGDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3842DB02B5D006A7164 /* IGDBEndpoint.swift */; };
+		CE06A3A22DB05715006A7164 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3832DB02B5D006A7164 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -371,9 +372,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE06A3A12DB056F1006A7164 /* IGDBEndpoint.swift in Sources */,
 				CE06A36B2DB029E9006A7164 /* SnakeCaseJSONDecoder.swift in Sources */,
-				CE06A36C2DB029E9006A7164 /* Endpoint.swift in Sources */,
 				CE06A36F2DB029E9006A7164 /* HTTPClient.swift in Sources */,
+				CE06A3A22DB05715006A7164 /* Endpoint.swift in Sources */,
 				CE06A3702DB029E9006A7164 /* HTTPMethod.swift in Sources */,
 				CE06A3712DB029E9006A7164 /* Networkable.swift in Sources */,
 				CE06A38D2DB02B5D006A7164 /* TwitchEndpoint.swift in Sources */,
@@ -419,6 +421,7 @@
 /* Begin XCBuildConfiguration section */
 		CEF852662DAFF12500FF0028 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE06A37C2DB02B5D006A7164 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
