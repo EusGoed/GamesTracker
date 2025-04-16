@@ -12,13 +12,15 @@ class HTTPClient: Networkable {
     )
     
     private let urlSession: URLSessionProtocol
+    private let authenticator: Authenticator
     
-    init(urlSession: URLSessionProtocol = URLSession.shared) {
+    init(urlSession: URLSessionProtocol = URLSession.shared, authenticator: Authenticator) {
         self.urlSession = urlSession
+        self.authenticator = authenticator
     }
     
-    func sendRequest<T: Decodable>(endpoint: any EndPoint) async throws -> T {
-        guard let urlRequest = createRequest(endPoint: endpoint) else {
+    func sendRequest<T: Decodable>(endpoint: any EndPoint, shouldRetryOnUnauthorized: Bool = true) async throws -> T {
+        guard let urlRequest = createRequest(endPoint: endpoint, accessToken: await authenticator.accessToken) else {
             HTTPClient.logger.warning("Could not create request: invalid URL")
             throw NetworkError.invalidURL
         }
@@ -36,6 +38,21 @@ class HTTPClient: Networkable {
             throw NetworkError.noResponse
         }
 
+        if httpResponse.statusCode == 401 {
+            guard shouldRetryOnUnauthorized else {
+                HTTPClient.logger.warning("Client is unauthorized")
+                throw NetworkError.unauthorized
+            }
+
+            do {
+                try await authenticator.refreshAccessToken()
+                return try await sendRequest(endpoint: endpoint, shouldRetryOnUnauthorized: false)
+            } catch {
+                HTTPClient.logger.error("Token refresh failed: \(error.localizedDescription)")
+                throw NetworkError.unauthorized
+            }
+        }
+        
         guard (200...299).contains(httpResponse.statusCode) else {
             HTTPClient.logger.warning("Got a response with an unexpected status code: \(httpResponse.statusCode)")
             throw NetworkError.unexpectedStatusCode

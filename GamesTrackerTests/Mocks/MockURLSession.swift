@@ -6,19 +6,16 @@ import Foundation
 @testable import GamesTracker
 
 final class MockURLSession: URLSessionProtocol {
-    var data: Data?
-    var response: URLResponse?
-    var error: NetworkError?
+    var data: [Data] = []
+    var responses: [URLResponse] = []
 
     func data(for request: URLRequest) async throws -> (Data, URLResponse) {
-        if let error {
-            throw error
+        if !data.isEmpty, !responses.isEmpty {
+            return (data.removeFirst(), responses.removeFirst())
+        } else if let data = data.first, let response = responses.first {
+            return (data, response)
+        } else {
+            fatalError("No mock response set.")
         }
-
-        guard let data, let response else {
-            fatalError("Missing data and/or response")
-        }
-
-        return (data, response)
     }
 }

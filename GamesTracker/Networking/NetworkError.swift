@@ -6,6 +6,7 @@ import Foundation
 
 enum NetworkError: Error {
     case invalidURL
+    case unauthorized
     case unexpectedStatusCode
     case noResponse
     case decodingError

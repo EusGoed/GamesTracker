@@ -13,23 +13,16 @@
 		CE06A3702DB029E9006A7164 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A35F2DB029E9006A7164 /* HTTPMethod.swift */; };
 		CE06A3712DB029E9006A7164 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3602DB029E9006A7164 /* Networkable.swift */; };
 		CE06A3722DB029E9006A7164 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3612DB029E9006A7164 /* NetworkError.swift */; };
-		CE06A3732DB029E9006A7164 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3622DB029E9006A7164 /* URLSessionProtocol.swift */; };
 		CE06A3752DB029E9006A7164 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3662DB029E9006A7164 /* ContentView.swift */; };
 		CE06A3762DB029E9006A7164 /* GamesTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3672DB029E9006A7164 /* GamesTrackerApp.swift */; };
 		CE06A3792DB029E9006A7164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE06A3642DB029E9006A7164 /* Assets.xcassets */; };
 		CE06A38D2DB02B5D006A7164 /* TwitchEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3852DB02B5D006A7164 /* TwitchEndpoint.swift */; };
-		CE06A38E2DB02B5D006A7164 /* IGDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3842DB02B5D006A7164 /* IGDBEndpoint.swift */; };
-		CE06A38F2DB02B5D006A7164 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3892DB02B5D006A7164 /* Networkable.swift */; };
 		CE06A3902DB02B5D006A7164 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A38B2DB02B5D006A7164 /* URLSessionProtocol.swift */; };
-		CE06A3912DB02B5D006A7164 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3832DB02B5D006A7164 /* Endpoint.swift */; };
 		CE06A3922DB02B5D006A7164 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A37E2DB02B5D006A7164 /* Constants.swift */; };
-		CE06A3932DB02B5D006A7164 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3882DB02B5D006A7164 /* HTTPMethod.swift */; };
-		CE06A3942DB02B5D006A7164 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3872DB02B5D006A7164 /* HTTPClient.swift */; };
-		CE06A3952DB02B5D006A7164 /* SnakeCaseJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3812DB02B5D006A7164 /* SnakeCaseJSONDecoder.swift */; };
-		CE06A3962DB02B5D006A7164 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A37F2DB02B5D006A7164 /* Token.swift */; };
-		CE06A3972DB02B5D006A7164 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A38A2DB02B5D006A7164 /* NetworkError.swift */; };
+		CE06A3962DB02B5D006A7164 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A37F2DB02B5D006A7164 /* TokenResponse.swift */; };
 		CE06A3982DB02B5D006A7164 /* Config.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = CE06A37B2DB02B5D006A7164 /* Config.xcconfig.example */; };
 		CE06A3992DB02B5D006A7164 /* Development.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CE06A37C2DB02B5D006A7164 /* Development.xcconfig */; };
+		CE06A39B2DB02FA1006A7164 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A39A2DB02FA1006A7164 /* Authenticator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +57,7 @@
 		CE06A37B2DB02B5D006A7164 /* Config.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.xcconfig.example; sourceTree = "<group>"; };
 		CE06A37C2DB02B5D006A7164 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		CE06A37E2DB02B5D006A7164 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CE06A37F2DB02B5D006A7164 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		CE06A37F2DB02B5D006A7164 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		CE06A3812DB02B5D006A7164 /* SnakeCaseJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeCaseJSONDecoder.swift; sourceTree = "<group>"; };
 		CE06A3832DB02B5D006A7164 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		CE06A3842DB02B5D006A7164 /* IGDBEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBEndpoint.swift; sourceTree = "<group>"; };
@@ -74,6 +67,7 @@
 		CE06A3892DB02B5D006A7164 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		CE06A38A2DB02B5D006A7164 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CE06A38B2DB02B5D006A7164 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		CE06A39A2DB02FA1006A7164 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		CEF852452DAFF12300FF0028 /* GamesTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF852542DAFF12500FF0028 /* GamesTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GamesTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF8525E2DAFF12500FF0028 /* GamesTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GamesTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +169,7 @@
 		CE06A3802DB02B5D006A7164 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE06A37F2DB02B5D006A7164 /* Token.swift */,
+				CE06A37F2DB02B5D006A7164 /* TokenResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,6 +198,7 @@
 				CE06A3822DB02B5D006A7164 /* Decoders */,
 				CE06A3862DB02B5D006A7164 /* Endpoints */,
 				CE06A3872DB02B5D006A7164 /* HTTPClient.swift */,
+				CE06A39A2DB02FA1006A7164 /* Authenticator.swift */,
 				CE06A3882DB02B5D006A7164 /* HTTPMethod.swift */,
 				CE06A3892DB02B5D006A7164 /* Networkable.swift */,
 				CE06A38A2DB02B5D006A7164 /* NetworkError.swift */,
@@ -382,18 +377,11 @@
 				CE06A3702DB029E9006A7164 /* HTTPMethod.swift in Sources */,
 				CE06A3712DB029E9006A7164 /* Networkable.swift in Sources */,
 				CE06A38D2DB02B5D006A7164 /* TwitchEndpoint.swift in Sources */,
-				CE06A38E2DB02B5D006A7164 /* IGDBEndpoint.swift in Sources */,
-				CE06A38F2DB02B5D006A7164 /* Networkable.swift in Sources */,
+				CE06A39B2DB02FA1006A7164 /* Authenticator.swift in Sources */,
 				CE06A3902DB02B5D006A7164 /* URLSessionProtocol.swift in Sources */,
-				CE06A3912DB02B5D006A7164 /* Endpoint.swift in Sources */,
 				CE06A3922DB02B5D006A7164 /* Constants.swift in Sources */,
-				CE06A3932DB02B5D006A7164 /* HTTPMethod.swift in Sources */,
-				CE06A3942DB02B5D006A7164 /* HTTPClient.swift in Sources */,
-				CE06A3952DB02B5D006A7164 /* SnakeCaseJSONDecoder.swift in Sources */,
-				CE06A3962DB02B5D006A7164 /* Token.swift in Sources */,
-				CE06A3972DB02B5D006A7164 /* NetworkError.swift in Sources */,
+				CE06A3962DB02B5D006A7164 /* TokenResponse.swift in Sources */,
 				CE06A3722DB029E9006A7164 /* NetworkError.swift in Sources */,
-				CE06A3732DB029E9006A7164 /* URLSessionProtocol.swift in Sources */,
 				CE06A3752DB029E9006A7164 /* ContentView.swift in Sources */,
 				CE06A3762DB029E9006A7164 /* GamesTrackerApp.swift in Sources */,
 			);
