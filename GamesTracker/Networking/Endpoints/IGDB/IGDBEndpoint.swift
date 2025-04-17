@@ -5,8 +5,7 @@
 import Foundation
 
 enum IGDBEndpoint {
-    case games
-    case game
+    case games(IGDBQuery)
 }
 
 extension IGDBEndpoint: Endpoint {
@@ -17,8 +16,6 @@ extension IGDBEndpoint: Endpoint {
     var path: String {
         let path: String
         switch self {
-        case .game:
-            path = "/game"
         case .games:
             path = "/games"
         }
@@ -32,7 +29,7 @@ extension IGDBEndpoint: Endpoint {
     
     var method: HTTPMethod {
         switch self {
-        case .games, .game:
+        case .games:
             .post
         }
     }
@@ -43,6 +40,9 @@ extension IGDBEndpoint: Endpoint {
     }
     
     var body: String? {
-        "fields name;"
+        switch self {
+        case .games(let query):
+            return query
+        }
     }
 }
