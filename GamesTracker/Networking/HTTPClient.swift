@@ -6,10 +6,7 @@ import Foundation
 import OSLog
 
 class HTTPClient: Networkable {
-    private static let logger = Logger(
-        subsystem: Bundle.main.bundleIdentifier ?? "",
-        category: String(describing: HTTPClient.self)
-    )
+    private static let logger = Logger(for:  HTTPClient.self)
     
     private let urlSession: URLSessionProtocol
     private let authenticator: Authenticator

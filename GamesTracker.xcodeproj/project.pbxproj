@@ -31,6 +31,8 @@
 		CE06A3CA2DB16ABF006A7164 /* GameImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3C92DB16ABF006A7164 /* GameImage.swift */; };
 		CE06A3CC2DB16AE6006A7164 /* MockImageLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3CB2DB16AE6006A7164 /* MockImageLoadable.swift */; };
 		CE06A3CE2DB16B0A006A7164 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3CD2DB16B0A006A7164 /* PreviewData.swift */; };
+		CE06A3D92DB17310006A7164 /* GameDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3D82DB17310006A7164 /* GameDataLoader.swift */; };
+		CE06A3E02DB175D0006A7164 /* Logger+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3DF2DB175D0006A7164 /* Logger+init.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		CE06A3C92DB16ABF006A7164 /* GameImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameImage.swift; sourceTree = "<group>"; };
 		CE06A3CB2DB16AE6006A7164 /* MockImageLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageLoadable.swift; sourceTree = "<group>"; };
 		CE06A3CD2DB16B0A006A7164 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		CE06A3D82DB17310006A7164 /* GameDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataLoader.swift; sourceTree = "<group>"; };
+		CE06A3DF2DB175D0006A7164 /* Logger+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+init.swift"; sourceTree = "<group>"; };
 		CEF852452DAFF12300FF0028 /* GamesTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF852542DAFF12500FF0028 /* GamesTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GamesTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF8525E2DAFF12500FF0028 /* GamesTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GamesTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +126,7 @@
 		CE06A3692DB029E9006A7164 /* GamesTracker */ = {
 			isa = PBXGroup;
 			children = (
+				CE06A3DE2DB175C3006A7164 /* Extensions */,
 				CE06A3D32DB16FDB006A7164 /* DataManagement */,
 				CE06A3B82DB1455E006A7164 /* GamesScreen */,
 				CE06A37D2DB02B5D006A7164 /* Config */,
@@ -219,8 +224,17 @@
 		CE06A3D32DB16FDB006A7164 /* DataManagement */ = {
 			isa = PBXGroup;
 			children = (
+				CE06A3D82DB17310006A7164 /* GameDataLoader.swift */,
 			);
 			path = DataManagement;
+			sourceTree = "<group>";
+		};
+		CE06A3DE2DB175C3006A7164 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE06A3DF2DB175D0006A7164 /* Logger+init.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CEF8523C2DAFF12300FF0028 = {
@@ -389,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE06A3B72DB11AE3006A7164 /* SnakeCaseJSONDecoder.swift in Sources */,
+				CE06A3E02DB175D0006A7164 /* Logger+init.swift in Sources */,
 				CE06A3A12DB056F1006A7164 /* IGDBEndpoint.swift in Sources */,
 				CE06A3CA2DB16ABF006A7164 /* GameImage.swift in Sources */,
 				CE06A3A42DB06CE1006A7164 /* Game.swift in Sources */,
@@ -403,6 +418,7 @@
 				CE06A3B52DB11ADE006A7164 /* Networkable.swift in Sources */,
 				CE06A3B62DB11ADE006A7164 /* NetworkError.swift in Sources */,
 				CE06A3962DB02B5D006A7164 /* TokenResponse.swift in Sources */,
+				CE06A3D92DB17310006A7164 /* GameDataLoader.swift in Sources */,
 				CE06A3BD2DB14C48006A7164 /* IGDBQuery.swift in Sources */,
 				CE06A3752DB029E9006A7164 /* ContentView.swift in Sources */,
 				CE06A3BA2DB14576006A7164 /* GameView.swift in Sources */,
