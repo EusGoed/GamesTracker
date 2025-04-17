@@ -12,6 +12,11 @@ extension IGDBQuery {
         return self.appending(fields)
     }
     
+    func imageFields(_ fields: [String]) -> IGDBQuery {
+        let fields = "fields \(fields.map { "\($0).image_id, \($0).width, \($0).height"}.joined(separator: ","));"
+        return self.appending(fields)
+    }
+    
     func filters(_ filters: [String]) -> IGDBQuery {
         let filters = "where \(filters.joined(separator: " & "));"
         return self.appending(filters)
@@ -36,7 +41,8 @@ extension IGDBQuery {
 extension IGDBQuery {
     static func recentGames(offset: Int = 0) -> IGDBQuery {
         IGDBQuery()
-            .fields(["name", "rating", "created_at", "screenshots.image_id", "total_rating", "url", "artworks.image_id"])
+            .fields(["name", "summary", "rating", "created_at", "total_rating", "url"])
+            .imageFields(["screenshots", "artworks", "cover"])
             .sort("created_at desc")
             .limit(20)
             .offset(offset)

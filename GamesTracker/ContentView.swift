@@ -16,7 +16,9 @@ struct ContentView: View {
     }
     
     var body: some View {
-        GamesScreen(viewModel: GamesScreenDefaultViewModel(dataLoader: dataLoader))
+        NavigationStack {
+            GamesScreen(viewModel: GamesScreenDefaultViewModel(dataLoader: dataLoader))
+        }
     }
 }
 

@@ -3,6 +3,7 @@
 // All Rights Reserved
 
 import SwiftUI
+import CachedAsyncImage
 
 struct GameView: View {
     
@@ -17,11 +18,20 @@ struct GameView: View {
             VStack(alignment: .leading) {
                 Spacer()
                 Text(game.name)
-                    .colorScheme(.dark)
+                    .font(.title2)
                     .bold()
-                Text(game.createdAt.formatted())
-                    .colorScheme(.dark)
+                    .multilineTextAlignment(.leading)
+                
+                HStack {
+                    Text(game.createdAt.formatted())
+                    Spacer()
+                    if let rating = game.rating {
+                        Text("\(String(format: "%.1f", rating / 10.0)) / 10 ⭐️")
+                        .bold()
+                    }
+                }
             }
+            .foregroundStyle(.white)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)
             .padding(.bottom, 8)
@@ -33,7 +43,7 @@ struct GameView: View {
     var backgroundView: some View {
         if let imageUrl = (game.screenshots ?? game.artworks)?.first?.imageURL {
             GeometryReader { geo in
-                AsyncImage(url: imageUrl) { image in
+                CachedAsyncImage(url: imageUrl) { image in
                     image
                         .resizable()
                         .scaledToFill()

@@ -28,7 +28,7 @@ class GamesScreenDefaultViewModel: GamesScreenViewModel {
                 games.append(contentsOf: newGames )
             }
         } catch {
-            print(error)
+            // Deal with error
         }
     }
 }

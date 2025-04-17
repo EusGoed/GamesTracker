@@ -8,11 +8,12 @@ protocol ImageLoadable: Decodable, Sendable {
     var imageURL: URL? { get }
 }
 
-struct GameImage: ImageLoadable {
+struct GameGenericImage: ImageLoadable {
     let imageId: String
     
     var imageURL: URL? {
         URL(string: "https://images.igdb.com/igdb/image/upload/t_720p/\(imageId).webp")
     }
 }
+
 
