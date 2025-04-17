@@ -13,7 +13,7 @@ struct GamesScreen: View {
             ProgressView(label: {
                 Text("Loading...")
                     .task {
-                        await viewModel.loadGames()
+                        await viewModel.loadGames(forceRefresh: false)
                     }
             })
         } else {
@@ -29,10 +29,14 @@ struct GamesScreen: View {
                     }
                     ProgressView()
                         .task {
-                            await viewModel.loadGames()
+                            await viewModel.loadGames(forceRefresh: false)
                         }
                     }
                 }
+            
+            .refreshable {
+                await viewModel.loadGames(forceRefresh: true)
+            }
             .navigationTitle("Most recent games")
             
         }

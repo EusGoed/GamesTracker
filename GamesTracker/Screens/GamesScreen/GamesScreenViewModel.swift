@@ -8,7 +8,7 @@ import SwiftUI
 @MainActor
 protocol GamesScreenViewModel {
     var games: [GameDTO] { get set }
-    func loadGames() async
+    func loadGames(forceRefresh: Bool) async
 }
 
 @Observable
@@ -21,11 +21,15 @@ class GamesScreenDefaultViewModel: GamesScreenViewModel {
         self.dataLoader = dataLoader
     }
     
-    func loadGames() async {
+    func loadGames(forceRefresh: Bool = false) async {
         do {
-            let newGames = try await dataLoader.fetchGames(offset: games.count)
+            let newGames = try await dataLoader.fetchGames(offset: forceRefresh ? 0 : games.count)
             withAnimation {
-                games.append(contentsOf: newGames )
+                if forceRefresh {
+                    games = newGames // Empty games array and start fresh
+                } else {
+                    games.append(contentsOf: newGames )
+                }
             }
         } catch {
             // Deal with error
