@@ -7,9 +7,16 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+   
+    private let dataLoader: GameDataLoader
+    
+    init() {
+        let client = HTTPClient(authenticator: TwitchAuthenticator())
+        self.dataLoader = GameDataLoader(client: client)
+    }
     
     var body: some View {
-        EmptyView()
+        GamesScreen(viewModel: GamesScreenDefaultViewModel(dataLoader: dataLoader))
     }
 }
 

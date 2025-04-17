@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct GameDTO: Decodable, Identifiable, Sendable {
+struct GameDTO: Decodable, Identifiable, Sendable, Equatable {
     var id: Int
     var name: String
     var createdAt: Date
@@ -42,5 +42,9 @@ struct GameDTO: Decodable, Identifiable, Sendable {
         self.artworks = try container.decodeIfPresent([GameImage].self, forKey: .artworks)
         self.url = try container.decode(URL.self, forKey: .url)
         self.rating = try container.decodeIfPresent(Double.self, forKey: .rating)
+    }
+    
+    static func == (lhs: GameDTO, rhs: GameDTO) -> Bool {
+        lhs.id == rhs.id
     }
 }
