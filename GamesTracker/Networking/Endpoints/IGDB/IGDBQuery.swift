@@ -34,11 +34,11 @@ extension IGDBQuery {
 }
 
 extension IGDBQuery {
-    static func recentGames() -> IGDBQuery {
+    static func recentGames(offset: Int = 0) -> IGDBQuery {
         IGDBQuery()
-            .fields(["name", "rating", "first_release_date", "screenshots.url", "total_rating", "url"])
-            .filters(["first_release_date < \(Int(Date().timeIntervalSince1970))"])
-            .sort("first_release_date desc")
-            .limit(10)
+            .fields(["name", "rating", "created_at", "screenshots.image_id", "total_rating", "url", "artworks.image_id"])
+            .sort("created_at desc")
+            .limit(20)
+            .offset(offset)
     }
 }

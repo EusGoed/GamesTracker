@@ -61,7 +61,7 @@ class HTTPClient: Networkable {
         do {
             return try JSONDecoder.snakeCaseDecoder.decode(T.self, from: data)
         } catch {
-            HTTPClient.logger.error("Decoding failed: \(error.localizedDescription) - \(String(data: data, encoding: .utf8)!)")
+            HTTPClient.logger.error("Decoding failed: \(error) - \(String(data: data, encoding: .utf8)!)")
             throw NetworkError.decodingError
         }
     }
