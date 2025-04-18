@@ -6,7 +6,9 @@ import SwiftUI
 import CachedAsyncImage
 
 struct GameDetailScreen: View {
-    @State var game: GameDTO
+    @State var game: Game
+    @Environment(\.openURL) var openURL
+    @Environment(NetworkMonitor.self) private var networkMonitor
     
     @State private var summaryExpanded: Bool = false
     @State private var offset: CGFloat = 0
@@ -14,23 +16,38 @@ struct GameDetailScreen: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                if let cover = game.cover {
+                if let cover = game.cover?.coverImage() {
                     headerView(cover: cover)
                 }
                 
                 VStack {
+                    if !networkMonitor.isConnected {
+                        NoNetworkConnectionView()
+                    }
                     nameView()
                     
                     if let summary = game.summary {
                         summaryView(summary)
                     }
                     
-                    if let screenshots = game.screenshots {
+                    if let screenshots = game.screenshots?.map({  $0.genericImage() }) {
                         carouselView(title: "Screenshots", images: screenshots)
                     }
                     
-                    if let artworks = game.artworks {
+                    if let artworks = game.artworks?.map({  $0.genericImage() }) {
                         carouselView(title: "Artworks", images: artworks)
+                    }
+                    
+                    Button(action: { openURL(game.url) }) {
+                        HStack {
+                            Image(systemName: "safari.fill")
+                            Text("More details")
+                        }
+                        .foregroundStyle(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.accentColor)
+                        .cornerRadius(8)
                     }
                 }
                 .padding(.horizontal)
@@ -53,7 +70,7 @@ struct GameDetailScreen: View {
             let width = geo.size.width
             let height = baseHeight + max(minY, 0)
 
-            CachedAsyncImage(url: cover.imageURL) { image in
+            CachedAsyncImage(url: cover.imageURL, urlCache: .imageCache) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -61,12 +78,9 @@ struct GameDetailScreen: View {
                     .clipped()
                     .offset(y: -max(minY, 0))
             } placeholder: {
-                ZStack {
-                    Color.gray.opacity(0.3)
-                    ProgressView()
-                }
-                .frame(width: width, height: height)
-                .offset(y: -max(minY, 0))
+                imagePlaceholder
+                    .frame(width: width, height: height)
+                    .offset(y: -max(minY, 0))
             }
         }
         .frame(height: baseHeight)
@@ -115,16 +129,15 @@ struct GameDetailScreen: View {
             ScrollView(.horizontal) {
                 LazyHStack {
                     ForEach(images, id: \.imageId) { screenshot in
-                        CachedAsyncImage(url: screenshot.imageURL) { image in
+                        CachedAsyncImage(url: screenshot.imageURL, urlCache: .imageCache) { image in
                             image
                                 .resizable()
                                 .scaledToFit()
                                 .cornerRadius(8)
                         } placeholder: {
-                            ProgressView()
+                            imagePlaceholder
                         }
-                        .frame(maxHeight: 199)
-                        
+                        .frame(maxHeight: 200)
                     }
                 }
                 .scrollTargetLayout()
@@ -133,10 +146,24 @@ struct GameDetailScreen: View {
             .scrollIndicators(.visible)
         }
         .navigationTitle(game.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
     
+    var imagePlaceholder: some View {
+        ZStack {
+            Color.gray.opacity(0.3)
+            if networkMonitor.isConnected {
+                ProgressView()
+            } else {
+                Image(systemName: "network.slash")
+                    .foregroundStyle(.white)
+            }
+        }
+        .frame(width: 200, height: 200)
+        .cornerRadius(8)
+    }
 }
 
 #Preview {
-    GameDetailScreen(game: PreviewData.gameDetailGame)
+    GameDetailScreen(game: Game(from: PreviewData.gameDetailGame))
 }

@@ -7,66 +7,60 @@ import Testing
 
 @MainActor
 struct GamesScreenViewModelTests {
-
-    private let dataLoader: MockGameDataLoading
+    
+    private let dataLoader: MockGameDataLoading!
+    private let cachedDataManager: MockCachedDataManager!
     
     private let sut: GamesScreenDefaultViewModel!
     
     init() {
         dataLoader = MockGameDataLoading()
+        cachedDataManager = MockCachedDataManager()
         
-        sut = GamesScreenDefaultViewModel(dataLoader: dataLoader)
+        sut = GamesScreenDefaultViewModel(dataLoader: dataLoader, cachedDataManager: cachedDataManager)
     }
     
-    @Test func loadGames_fetchesGames() async {
+    @Test func loadGames_callsSaveWithFetchedGames() async throws {
         // Arrange
-        let mockGames = [MockGameDTO.gameMario, MockGameDTO.gameZelda]
-        dataLoader.response = mockGames
-
+        let expected = [MockGameDTO.gameMario, MockGameDTO.gameZelda]
+        dataLoader.response = expected
+        
         // Act
-        await sut.loadGames()
-
+        await sut.loadGames(offset: 0)
+        
         // Assert
-        #expect(sut.games == mockGames)
+        #expect(cachedDataManager.savedGames == expected)
     }
     
-    @Test func loadGames_appendsGames() async {
-        // Arrange
-        let mockGames = [MockGameDTO.gameMario, MockGameDTO.gameZelda]
-        dataLoader.response = [mockGames.first!]
-
+    @Test func deleteAllCachedData_callsDelete() async throws {
         // Act
-        await sut.loadGames()
-        
-        #expect(sut.games == [mockGames.first!] )
-        
-        // Arrange
-        dataLoader.response = [mockGames.last!]
-
-        // Act
-        await sut.loadGames()
+        await sut.deleteAllCachedData()
         
         // Assert
-        #expect(sut.games == mockGames)
+        #expect(cachedDataManager.deleteCalled)
     }
     
-    @Test func loadGames_forceRefresh_doesNotAppend() async {
+    @Test func refresh_deletesThenLoads() async throws {
         // Arrange
-        let mockGames = [MockGameDTO.gameMario, MockGameDTO.gameZelda]
-        dataLoader.response = mockGames
-
-        // Act
-        await sut.loadGames(forceRefresh: false)
+        let expected = [MockGameDTO.gameZelda]
+        dataLoader.response = expected
         
-        #expect(sut.games.count == 2 )
-        
-        // Arrange
-        dataLoader.response = [mockGames.first!]
-
         // Act
-        await sut.loadGames(forceRefresh: true)
+        await sut.refresh()
         
         // Assert
-        #expect(sut.games.count == 1)
+        #expect(cachedDataManager.deleteCalled)
+        #expect(cachedDataManager.savedGames == expected)
+    }
+    
+    @Test func loadGames_handlesError() async {
+        // Arrange
+        dataLoader.error = MockError.testError
+        
+        // Act
+        await sut.loadGames(offset: 0)
+        
+        // Assert
+        #expect(cachedDataManager.savedGames.isEmpty)
     }
 }

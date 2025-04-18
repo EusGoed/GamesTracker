@@ -7,7 +7,8 @@ import CachedAsyncImage
 
 struct GameView: View {
     
-    let game: GameDTO
+    let game: Game
+    let isConnected: Bool
     
     var body: some View {
         ZStack {
@@ -41,9 +42,9 @@ struct GameView: View {
     
     @ViewBuilder
     var backgroundView: some View {
-        if let imageUrl = (game.screenshots ?? game.artworks)?.first?.imageURL {
+        if let imageUrl = (game.screenshots ?? game.artworks)?.first?.genericImage().imageURL {
             GeometryReader { geo in
-                CachedAsyncImage(url: imageUrl) { image in
+                CachedAsyncImage(url: imageUrl, urlCache: .imageCache) { image in
                     image
                         .resizable()
                         .scaledToFill()
@@ -57,7 +58,12 @@ struct GameView: View {
                 } placeholder: {
                     ZStack {
                         Color.gray
-                        ProgressView()
+                        if isConnected {
+                            ProgressView()
+                        } else {
+                            Image(systemName: "network.slash")
+                                .foregroundStyle(.white)
+                        }
                     }
                 }
             }
@@ -76,9 +82,10 @@ struct GameView: View {
 
 #Preview {
     LazyVStack(spacing: 8) {
-        GameView(game: PreviewData.screenshotGame)
-        GameView(game: PreviewData.noScreenshotGame)
-        GameView(game: PreviewData.loadingGame)
+        GameView(game: Game(from: PreviewData.screenshotGame), isConnected: true)
+        GameView(game: Game(from: PreviewData.noScreenshotGame), isConnected: true)
+        GameView(game: Game(from: PreviewData.loadingGame), isConnected: true)
+        GameView(game: Game(from: PreviewData.loadingGame), isConnected: false)
     }
     .padding()
 }

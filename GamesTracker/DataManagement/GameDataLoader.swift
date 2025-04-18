@@ -4,6 +4,7 @@
 
 import Foundation
 import OSLog
+
 protocol GameDataLoading {
     func fetchGames(offset: Int) async throws -> [GameDTO]
 }

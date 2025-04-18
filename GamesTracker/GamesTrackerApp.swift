@@ -8,7 +8,7 @@ import SwiftData
 @main
 struct GamesTrackerApp: App {
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([])
+        let schema = Schema([Game.self, GameImage.self])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
@@ -17,11 +17,20 @@ struct GamesTrackerApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    @State private var networkMonitor = NetworkMonitor()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let client = HTTPClient(authenticator: TwitchAuthenticator())
+            let dataLoader = GameDataLoader(client: client)
+            let cachedDataManager = CachedGameDataManager(modelContainer: sharedModelContainer)
+            let viewModel = GamesScreenDefaultViewModel(dataLoader: dataLoader, cachedDataManager: cachedDataManager)
+            NavigationStack {
+                GamesScreen(viewModel: viewModel)
+                    .modelContainer(sharedModelContainer)
+                    .environment(networkMonitor)
+            }
         }
-        .modelContainer(sharedModelContainer)
     }
 }

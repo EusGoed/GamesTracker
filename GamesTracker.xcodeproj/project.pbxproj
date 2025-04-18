@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE06A3752DB029E9006A7164 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3662DB029E9006A7164 /* ContentView.swift */; };
 		CE06A3762DB029E9006A7164 /* GamesTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3672DB029E9006A7164 /* GamesTrackerApp.swift */; };
 		CE06A3792DB029E9006A7164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE06A3642DB029E9006A7164 /* Assets.xcassets */; };
 		CE06A38D2DB02B5D006A7164 /* TwitchEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3852DB02B5D006A7164 /* TwitchEndpoint.swift */; };
@@ -19,7 +18,7 @@
 		CE06A39B2DB02FA1006A7164 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A39A2DB02FA1006A7164 /* Authenticator.swift */; };
 		CE06A3A12DB056F1006A7164 /* IGDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3842DB02B5D006A7164 /* IGDBEndpoint.swift */; };
 		CE06A3A22DB05715006A7164 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3832DB02B5D006A7164 /* Endpoint.swift */; };
-		CE06A3A42DB06CE1006A7164 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3A32DB06CE1006A7164 /* Game.swift */; };
+		CE06A3A42DB06CE1006A7164 /* GameDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3A32DB06CE1006A7164 /* GameDTO.swift */; };
 		CE06A3B32DB11ABF006A7164 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3882DB02B5D006A7164 /* HTTPMethod.swift */; };
 		CE06A3B42DB11ACC006A7164 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3872DB02B5D006A7164 /* HTTPClient.swift */; };
 		CE06A3B52DB11ADE006A7164 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3892DB02B5D006A7164 /* Networkable.swift */; };
@@ -38,6 +37,11 @@
 		CE06A3F22DB18D3F006A7164 /* GameDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06A3F12DB18D3F006A7164 /* GameDetailScreen.swift */; };
 		CEC3826B2DB19312003989B9 /* PreviewGameCoverImage.webp in Resources */ = {isa = PBXBuildFile; fileRef = CEC3826A2DB19312003989B9 /* PreviewGameCoverImage.webp */; };
 		CEC3827C2DB1A376003989B9 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = CEC3827B2DB1A376003989B9 /* CachedAsyncImage */; };
+		CEC383542DB1DAEE003989B9 /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC383532DB1DAEE003989B9 /* URLCache+imageCache.swift */; };
+		CEC383572DB1DC94003989B9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC383562DB1DC94003989B9 /* NetworkMonitor.swift */; };
+		CEC383592DB1E25C003989B9 /* CachedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC383582DB1E25C003989B9 /* CachedDataManager.swift */; };
+		CEC3835E2DB1E596003989B9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3835D2DB1E596003989B9 /* Game.swift */; };
+		CEC383602DB1E599003989B9 /* GameImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3835F2DB1E599003989B9 /* GameImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		CE06A3642DB029E9006A7164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CE06A3662DB029E9006A7164 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CE06A3672DB029E9006A7164 /* GamesTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTrackerApp.swift; sourceTree = "<group>"; };
 		CE06A3682DB029E9006A7164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE06A37B2DB02B5D006A7164 /* Config.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.xcconfig.example; sourceTree = "<group>"; };
@@ -76,7 +79,7 @@
 		CE06A38A2DB02B5D006A7164 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CE06A38B2DB02B5D006A7164 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		CE06A39A2DB02FA1006A7164 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
-		CE06A3A32DB06CE1006A7164 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		CE06A3A32DB06CE1006A7164 /* GameDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDTO.swift; sourceTree = "<group>"; };
 		CE06A3B92DB14576006A7164 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		CE06A3BC2DB14C48006A7164 /* IGDBQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBQuery.swift; sourceTree = "<group>"; };
 		CE06A3C72DB1670A006A7164 /* PreviewGameScreenshot.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = PreviewGameScreenshot.webp; sourceTree = "<group>"; };
@@ -89,6 +92,11 @@
 		CE06A3E62DB182EE006A7164 /* GamesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesScreenViewModel.swift; sourceTree = "<group>"; };
 		CE06A3F12DB18D3F006A7164 /* GameDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailScreen.swift; sourceTree = "<group>"; };
 		CEC3826A2DB19312003989B9 /* PreviewGameCoverImage.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = PreviewGameCoverImage.webp; sourceTree = "<group>"; };
+		CEC383532DB1DAEE003989B9 /* URLCache+imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+imageCache.swift"; sourceTree = "<group>"; };
+		CEC383562DB1DC94003989B9 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		CEC383582DB1E25C003989B9 /* CachedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedDataManager.swift; sourceTree = "<group>"; };
+		CEC3835D2DB1E596003989B9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		CEC3835F2DB1E599003989B9 /* GameImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameImage.swift; sourceTree = "<group>"; };
 		CEF852452DAFF12300FF0028 /* GamesTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF852542DAFF12500FF0028 /* GamesTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GamesTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF8525E2DAFF12500FF0028 /* GamesTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GamesTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +144,7 @@
 		CE06A3692DB029E9006A7164 /* GamesTracker */ = {
 			isa = PBXGroup;
 			children = (
+				CEC383552DB1DC81003989B9 /* Util */,
 				CE06A3EE2DB18CE5006A7164 /* Screens */,
 				CE06A3DE2DB175C3006A7164 /* Extensions */,
 				CE06A3D32DB16FDB006A7164 /* DataManagement */,
@@ -144,7 +153,6 @@
 				CE06A3802DB02B5D006A7164 /* Model */,
 				CE06A38C2DB02B5D006A7164 /* Networking */,
 				CE06A3642DB029E9006A7164 /* Assets.xcassets */,
-				CE06A3662DB029E9006A7164 /* ContentView.swift */,
 				CE06A3672DB029E9006A7164 /* GamesTrackerApp.swift */,
 				CE06A3682DB029E9006A7164 /* Info.plist */,
 				CE06A3C42DB166C5006A7164 /* PreviewContent */,
@@ -164,8 +172,9 @@
 		CE06A3802DB02B5D006A7164 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEC3835C2DB1E58F003989B9 /* DataModels */,
 				CE06A37F2DB02B5D006A7164 /* TokenResponse.swift */,
-				CE06A3A32DB06CE1006A7164 /* Game.swift */,
+				CE06A3A32DB06CE1006A7164 /* GameDTO.swift */,
 				CE06A3C92DB16ABF006A7164 /* ImageLoadable.swift */,
 			);
 			path = Model;
@@ -194,10 +203,10 @@
 			children = (
 				CE06A3822DB02B5D006A7164 /* Decoders */,
 				CE06A3862DB02B5D006A7164 /* Endpoints */,
-				CE06A3872DB02B5D006A7164 /* HTTPClient.swift */,
 				CE06A39A2DB02FA1006A7164 /* Authenticator.swift */,
-				CE06A3882DB02B5D006A7164 /* HTTPMethod.swift */,
 				CE06A3892DB02B5D006A7164 /* Networkable.swift */,
+				CE06A3872DB02B5D006A7164 /* HTTPClient.swift */,
+				CE06A3882DB02B5D006A7164 /* HTTPMethod.swift */,
 				CE06A38A2DB02B5D006A7164 /* NetworkError.swift */,
 				CE06A38B2DB02B5D006A7164 /* URLSessionProtocol.swift */,
 			);
@@ -237,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				CE06A3D82DB17310006A7164 /* GameDataLoader.swift */,
+				CEC383582DB1E25C003989B9 /* CachedDataManager.swift */,
 			);
 			path = DataManagement;
 			sourceTree = "<group>";
@@ -245,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				CE06A3DF2DB175D0006A7164 /* Logger+init.swift */,
+				CEC383532DB1DAEE003989B9 /* URLCache+imageCache.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -273,6 +284,23 @@
 				CE06A3C72DB1670A006A7164 /* PreviewGameScreenshot.webp */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		CEC383552DB1DC81003989B9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CEC383562DB1DC94003989B9 /* NetworkMonitor.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		CEC3835C2DB1E58F003989B9 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				CEC3835D2DB1E596003989B9 /* Game.swift */,
+				CEC3835F2DB1E599003989B9 /* GameImage.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 		CEF8523C2DAFF12300FF0028 = {
@@ -445,28 +473,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC383602DB1E599003989B9 /* GameImage.swift in Sources */,
 				CE06A3B72DB11AE3006A7164 /* SnakeCaseJSONDecoder.swift in Sources */,
 				CE06A3E02DB175D0006A7164 /* Logger+init.swift in Sources */,
 				CE06A3A12DB056F1006A7164 /* IGDBEndpoint.swift in Sources */,
 				CE06A3CA2DB16ABF006A7164 /* ImageLoadable.swift in Sources */,
-				CE06A3A42DB06CE1006A7164 /* Game.swift in Sources */,
+				CE06A3A42DB06CE1006A7164 /* GameDTO.swift in Sources */,
 				CE06A3B42DB11ACC006A7164 /* HTTPClient.swift in Sources */,
 				CE06A3F22DB18D3F006A7164 /* GameDetailScreen.swift in Sources */,
 				CE06A3E72DB182EE006A7164 /* GamesScreen.swift in Sources */,
 				CE06A3E82DB182EE006A7164 /* GamesScreenViewModel.swift in Sources */,
+				CEC383572DB1DC94003989B9 /* NetworkMonitor.swift in Sources */,
 				CE06A3A22DB05715006A7164 /* Endpoint.swift in Sources */,
 				CE06A3B32DB11ABF006A7164 /* HTTPMethod.swift in Sources */,
 				CE06A38D2DB02B5D006A7164 /* TwitchEndpoint.swift in Sources */,
 				CE06A39B2DB02FA1006A7164 /* Authenticator.swift in Sources */,
 				CE06A3902DB02B5D006A7164 /* URLSessionProtocol.swift in Sources */,
+				CEC383542DB1DAEE003989B9 /* URLCache+imageCache.swift in Sources */,
 				CE06A3CE2DB16B0A006A7164 /* PreviewData.swift in Sources */,
 				CE06A3922DB02B5D006A7164 /* Constants.swift in Sources */,
+				CEC383592DB1E25C003989B9 /* CachedDataManager.swift in Sources */,
 				CE06A3B52DB11ADE006A7164 /* Networkable.swift in Sources */,
 				CE06A3B62DB11ADE006A7164 /* NetworkError.swift in Sources */,
 				CE06A3962DB02B5D006A7164 /* TokenResponse.swift in Sources */,
 				CE06A3D92DB17310006A7164 /* GameDataLoader.swift in Sources */,
+				CEC3835E2DB1E596003989B9 /* Game.swift in Sources */,
 				CE06A3BD2DB14C48006A7164 /* IGDBQuery.swift in Sources */,
-				CE06A3752DB029E9006A7164 /* ContentView.swift in Sources */,
 				CE06A3BA2DB14576006A7164 /* GameView.swift in Sources */,
 				CE06A3762DB029E9006A7164 /* GamesTrackerApp.swift in Sources */,
 				CE06A3CC2DB16AE6006A7164 /* MockImageLoadable.swift in Sources */,

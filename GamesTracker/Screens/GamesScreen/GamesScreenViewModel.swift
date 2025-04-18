@@ -4,35 +4,46 @@
 
 import Foundation
 import SwiftUI
+import OSLog
 
 @MainActor
 protocol GamesScreenViewModel {
-    var games: [GameDTO] { get set }
-    func loadGames(forceRefresh: Bool) async
+    func loadGames(offset: Int) async
+    func deleteAllCachedData() async
+    func refresh() async
 }
 
 @Observable
 class GamesScreenDefaultViewModel: GamesScreenViewModel {
-    var games: [GameDTO] = []
     
+    private static let logger = Logger(for: GamesScreenDefaultViewModel.self)
     private let dataLoader: GameDataLoading
+    private let cachedDataManager: CachedGameDataManaging
     
-    init(dataLoader: GameDataLoading) {
+    init(dataLoader: GameDataLoading, cachedDataManager: CachedGameDataManaging) {
         self.dataLoader = dataLoader
+        self.cachedDataManager = cachedDataManager
     }
     
-    func loadGames(forceRefresh: Bool = false) async {
+    func loadGames(offset: Int) async {
         do {
-            let newGames = try await dataLoader.fetchGames(offset: forceRefresh ? 0 : games.count)
-            withAnimation {
-                if forceRefresh {
-                    games = newGames // Empty games array and start fresh
-                } else {
-                    games.append(contentsOf: newGames )
-                }
-            }
+            let newGames = try await dataLoader.fetchGames(offset: offset)
+            try await cachedDataManager.save(newGames)
         } catch {
-            // Deal with error
+            GamesScreenDefaultViewModel.logger.error("Error loading new games: \(error)")
         }
+    }
+    
+    func deleteAllCachedData() async {
+        do {
+            try await cachedDataManager.deleteAllCachedData()
+        } catch {
+            GamesScreenDefaultViewModel.logger.error( "Error deleting cached data: \(error)")
+        }
+    }
+    
+    func refresh() async {
+        await deleteAllCachedData()
+        await loadGames(offset: 0)
     }
 }
